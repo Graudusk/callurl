@@ -14,16 +14,20 @@ This is how you install the module into an existing Anax installation.
 
 Install using composer.
 
-`composer require graudusk/callurl`
+```
+$ composer require graudusk/callurl
+```
 
 Copy the configuration files
 ----------------------------
 
-`rsync -av vendor/graudusk/callurl/config ./`
+```
+$ rsync -av vendor/graudusk/callurl/config ./
 
-`rsync -av vendor/graudusk/callurl/view ./`
+$ rsync -av vendor/graudusk/callurl/view ./
 
-`rsync -av vendor/graudusk/callurl/htdocs/ ./htdocs`
+$ rsync -av vendor/graudusk/callurl/htdocs/ ./htdocs
+```
 
 
 Install using scaffold postprocessing file
@@ -43,10 +47,10 @@ Install and setup Anax
 
 You need a Anax installation, before you can use this module. You can create a sample Anax installation, using the scaffolding utility [`anax-cli`](https://github.com/canax/anax-cli).
 
-Scaffold a sample Anax installation `anax-site-develop` into the directory `callurl`.
+Scaffold a sample Anax installation `anax create a ramverk1-me-v2` into the directory `callurl`.
 
 ```
-$ anax create callurl anax-site-develop
+$ anax create callurl anax create a ramverk1-me-v2
 $ cd callurl
 ```
 

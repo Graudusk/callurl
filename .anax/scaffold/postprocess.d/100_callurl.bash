@@ -13,6 +13,3 @@ rsync -av vendor/graudusk/callurl/view ./
 
 # Copy the htdocs files
 rsync -av vendor/graudusk/callurl/htdocs/ ./htdocs
-
-# Copy the documentation
-rsync -av vendor/anax/remserver/content/index.md ./content/remserver-api.md

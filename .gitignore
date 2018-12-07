@@ -3,5 +3,6 @@
 /b
 /build
 /vendor
+vendor/
 memory::
 composer.lock

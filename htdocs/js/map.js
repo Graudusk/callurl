@@ -1,3 +1,4 @@
+/* eslint-disable */
 window.initMap = (function() {
     'use strict';
 

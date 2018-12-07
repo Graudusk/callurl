@@ -116,7 +116,6 @@ class GeoIpControllerTest extends TestCase
      */
     public function testGetNewModel()
     {
-        $ipm = new \Erjh17\CallUrlModel\CallUrlModel("123.123.123.123");
         $this->di->get("request")->setGet("ip", "::1");
         $this->di->get("callurlmodel")->setIpstackKey("WRONGKEY");
         $this->di->get("callurlmodel")->setDarkskyKey("WRONGKEY");
