@@ -72,35 +72,42 @@ class CallUrl implements ContainerInjectableInterface
      */
     public function fetchConcurrently($urls, $params, $queries)
     {
-        $nodes = array();
+        $cache = $this->di->get("cache");
+        $weatherCache = $cache->get("weather");
+        if ($weatherCache) {
+            return $weatherCache;
+        } else {
+            $nodes = array();
 
-        for ($i=0; $i < sizeof($urls); $i++) {
-            $url = $this->buildUrl($urls[$i], $params[$i], $queries[$i]);
-            array_push($nodes, $url);
+            for ($i=0; $i < sizeof($urls); $i++) {
+                $url = $this->buildUrl($urls[$i], $params[$i], $queries[$i]);
+                array_push($nodes, $url);
+            }
+
+            $json = json_decode(file_get_contents(__DIR__ . '/getjson.json'), true);
+            return $json;
+            $nodeCount = count($nodes);
+
+            $curlArray = array();
+            $master = curl_multi_init();
+
+            for ($i = 0; $i < $nodeCount; $i++) {
+                $url = $nodes[$i];
+                $curlArray[$i] = curl_init($url);
+                curl_setopt($curlArray[$i], CURLOPT_RETURNTRANSFER, true);
+                curl_multi_add_handle($master, $curlArray[$i]);
+            }
+
+            do {
+                curl_multi_exec($master, $running);
+            } while ($running > 0);
+
+            for ($i = 0; $i < $nodeCount; $i++) {
+                $results[] = json_decode(curl_multi_getcontent($curlArray[$i]), true);
+            }
+            $cache->set("weather", $results);
+
+            return $results;
         }
-
-        // $json = json_decode(file_get_contents(__DIR__ . '/getjson.json'), true);
-        // return $json;
-        $nodeCount = count($nodes);
-
-        $curlArray = array();
-        $master = curl_multi_init();
-
-        for ($i = 0; $i < $nodeCount; $i++) {
-            $url = $nodes[$i];
-            $curlArray[$i] = curl_init($url);
-            curl_setopt($curlArray[$i], CURLOPT_RETURNTRANSFER, true);
-            curl_multi_add_handle($master, $curlArray[$i]);
-        }
-
-        do {
-            curl_multi_exec($master, $running);
-        } while ($running > 0);
-
-        for ($i = 0; $i < $nodeCount; $i++) {
-            $results[] = json_decode(curl_multi_getcontent($curlArray[$i]), true);
-        }
-
-        return $results;
     }
 }

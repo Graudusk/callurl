@@ -50,7 +50,7 @@ You need a Anax installation, before you can use this module. You can create a s
 Scaffold a sample Anax installation `anax create a ramverk1-me-v2` into the directory `callurl`.
 
 ```
-$ anax create callurl anax create a ramverk1-me-v2
+$ anax create a ramverk1-me-v2
 $ cd callurl
 ```
 
