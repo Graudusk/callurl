@@ -87,7 +87,7 @@ class CallUrl implements ContainerInjectableInterface
             return $weatherCache;
         } else {
             $nodes = array();
-            $result = array();
+            $results = array();
 
             for ($i=0; $i < sizeof($urls); $i++) {
                 $url = $this->buildUrl($urls[$i], $params[$i], $queries[$i]);
