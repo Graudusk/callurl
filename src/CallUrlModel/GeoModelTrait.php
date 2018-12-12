@@ -40,7 +40,7 @@ trait GeoModelTrait
 
     abstract function isValidIp();
     abstract function getInfo();
-    abstract function fillInfo();
+    abstract function fillInfo($result, $keys);
 
     /**
      * Sets opencagekey property.
