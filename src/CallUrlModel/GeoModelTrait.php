@@ -38,6 +38,10 @@ trait GeoModelTrait
         "display_name"
     ];
 
+    abstract function isValidIp();
+    abstract function getInfo();
+    abstract function fillInfo();
+
     /**
      * Sets opencagekey property.
      *
@@ -112,7 +116,7 @@ trait GeoModelTrait
      *
      * @param string $subject Coordinate.
      *
-     * @return boolean
+     * @return integer
      */
     public function isCoord($subject)
     {

@@ -14,12 +14,8 @@ class CallUrlModel implements ContainerInjectableInterface
     use WeatherModelTrait;
     use ContainerInjectableTrait;
 
-    const DATE_FORMAT = "%e %B %Y";
-    const TIME_FORMAT = "%R";
-    const DAY_FORMAT = "%A";
-
     /**
-     * Constructor to create a Dice.
+     * Constructor to set the IpAddress.
      *
      * @param string $ipAddress The ip address to be stored.
      */

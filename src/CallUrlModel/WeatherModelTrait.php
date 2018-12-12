@@ -26,6 +26,17 @@ trait WeatherModelTrait
     private $pastDays;
     private $darkskykey;
 
+    static $dateFormat = "%e %B %Y";
+    static $timeFormat = "%R";
+    static $dayFormat = "%A";
+
+    abstract function getInfo();
+    abstract function getGeoInfo();
+    abstract function pushInfo($result, $keys);
+    abstract function getZoomLevel();
+    abstract function setErrorMessage($msg);
+    abstract function fillInfo($result, $keys);
+
     /**
      * Sets darkskykey property.
      *
@@ -134,9 +145,9 @@ trait WeatherModelTrait
             );
 
             $time = $this->currently["time"];
-            $localdate = strftime(self::DATE_FORMAT, $time);
-            $localtime = strftime(self::TIME_FORMAT, $time);
-            $weekday = strftime(self::DAY_FORMAT, $time);
+            $localdate = strftime(self::$dateFormat, $time);
+            $localtime = strftime(self::$timeFormat, $time);
+            $weekday = strftime(self::$dayFormat, $time);
 
             $currently["weekday"] = ucfirst($weekday);
             $currently["date"] = ucfirst($localdate);
@@ -184,7 +195,7 @@ trait WeatherModelTrait
                 $time = $this->hourly["data"][$i]["time"];
                 if ($time) {
                     $this->parseDate("hourly", $i, $time);
-                    $weekday = strftime(self::DAY_FORMAT, $time);
+                    $weekday = strftime(self::$dayFormat, $time);
                     $weeknr = strftime("%w", $time);
 
                     $hourly["days"][$weeknr]["hours"][$i] = $this->pushInfo(
@@ -254,9 +265,9 @@ trait WeatherModelTrait
      */
     public function parseDate($arr, $i, $time)
     {
-        $localdate = strftime(self::DATE_FORMAT, $time);
-        $localtime = strftime(self::TIME_FORMAT, $time);
-        $weekday = strftime(self::DAY_FORMAT, $time);
+        $localdate = strftime(self::$dateFormat, $time);
+        $localtime = strftime(self::$timeFormat, $time);
+        $weekday = strftime(self::$dayFormat, $time);
         $this->$arr["data"][$i]["date"] = $localdate;
         $this->$arr["data"][$i]["weekday"] = ucfirst($weekday);
         $this->$arr["data"][$i]["timeofday"] = $localtime;

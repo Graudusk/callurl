@@ -27,16 +27,6 @@ trait IpModelTrait
     private $ipstackkey;
 
     /**
-     * [setIpstackUrl description]
-     *
-     * @param [type] $url [description]
-     */
-    public function setIpstackUrl($url)
-    {
-        $this->ipUrl = $url;
-    }
-
-    /**
      * [isValidIp description]
      *
      * @return boolean [description]
