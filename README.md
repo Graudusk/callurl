@@ -1,6 +1,7 @@
 Graudusk Call Url Module (callurl)
 ======================================
 [![Build Status](https://travis-ci.org/Graudusk/callurl.svg?branch=master)](https://travis-ci.org/Graudusk/callurl)
+[![CircleCI](https://circleci.com/gh/Graudusk/callurl.svg?style=svg)](https://circleci.com/gh/Graudusk/callurl)
 
 A module to provide weather data fetched through open APIs.
 
