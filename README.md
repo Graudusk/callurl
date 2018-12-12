@@ -2,6 +2,15 @@ Graudusk Call Url Module (callurl)
 ======================================
 [![Build Status](https://travis-ci.org/Graudusk/callurl.svg?branch=master)](https://travis-ci.org/Graudusk/callurl)
 [![CircleCI](https://circleci.com/gh/Graudusk/callurl.svg?style=svg)](https://circleci.com/gh/Graudusk/callurl)
+[![SymfonyInsight](https://insight.symfony.com/projects/42bbdaf4-be27-4e66-ae0e-97b20c5c2a8d/mini.svg)](https://insight.symfony.com/projects/42bbdaf4-be27-4e66-ae0e-97b20c5c2a8d)
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Graudusk/callurl/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Graudusk/callurl/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/Graudusk/callurl/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Graudusk/callurl/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/Graudusk/callurl/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Graudusk/callurl/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/Graudusk/callurl/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/63ba96fda08fc74b879c/maintainability)](https://codeclimate.com/github/Graudusk/callurl/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/63ba96fda08fc74b879c/test_coverage)](https://codeclimate.com/github/Graudusk/callurl/test_coverage)
 
 A module to provide weather data fetched through open APIs.
 

@@ -73,8 +73,17 @@ class CallUrl implements ContainerInjectableInterface
     public function fetchConcurrently($urls, $params, $queries)
     {
         $cache = $this->di->get("cache");
-        $weatherCache = $cache->get("weather");
+        $hour = date('YMDH');
+        $latLonDay = explode(",", $params[0][1]);
+        $lat = $latLonDay[0];
+        $lon = $latLonDay[1];
+        $cookieName = $lat . $lon . $hour;
+        $weatherCache = $cache->get($cookieName);
+
         if ($weatherCache) {
+            // $timeValue = $weatherCache[0]["currently"]["time"];  // assume seconds
+            // $date = date('YMDH', $timeValue);  // convert time value to milliseconds
+            // $cookieCall = $weatherCache[0]["latitude"] . $weatherCache[0]["longitude"] . $date;
             return $weatherCache;
         } else {
             $nodes = array();
@@ -84,8 +93,8 @@ class CallUrl implements ContainerInjectableInterface
                 array_push($nodes, $url);
             }
 
-            $json = json_decode(file_get_contents(__DIR__ . '/getjson.json'), true);
-            return $json;
+            // $json = json_decode(file_get_contents(__DIR__ . '/getjson.json'), true);
+            // return $json;
             $nodeCount = count($nodes);
 
             $curlArray = array();
@@ -105,7 +114,7 @@ class CallUrl implements ContainerInjectableInterface
             for ($i = 0; $i < $nodeCount; $i++) {
                 $results[] = json_decode(curl_multi_getcontent($curlArray[$i]), true);
             }
-            $cache->set("weather", $results);
+            $cache->set($cookieName, $results);
 
             return $results;
         }
