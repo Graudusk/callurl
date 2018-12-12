@@ -24,7 +24,7 @@ return [
             "javascripts" => [
                 "js/responsive-menu.js",
                 "https://unpkg.com/leaflet@1.3.4/dist/leaflet.js",
-                "js/skycons.js",
+                "https://darkskyapp.github.io/skycons/skycons.js",
                 "js/map.js",
             ],
         ],
