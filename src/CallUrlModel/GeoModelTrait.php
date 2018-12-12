@@ -43,7 +43,17 @@ trait GeoModelTrait
     abstract function fillInfo($result, $keys);
 
     /**
-     * Sets opencagekey property.
+     * Sets ipstackurl property.
+     *
+     * @param string $url ipstack url.
+     */
+    public function setIpstackUrl($url)
+    {
+        $this->ipUrl = $url;
+    }
+
+    /**
+     * Sets opencageurl property.
      *
      * @param string $url opencage url.
      */
