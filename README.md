@@ -7,10 +7,8 @@ Graudusk Call Url Module (callurl)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Graudusk/callurl/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Graudusk/callurl/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/Graudusk/callurl/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Graudusk/callurl/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/Graudusk/callurl/badges/build.png?b=master)](https://scrutinizer-ci.com/g/Graudusk/callurl/build-status/master)
-[![Code Intelligence Status](https://scrutinizer-ci.com/g/Graudusk/callurl/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/63ba96fda08fc74b879c/maintainability)](https://codeclimate.com/github/Graudusk/callurl/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/63ba96fda08fc74b879c/test_coverage)](https://codeclimate.com/github/Graudusk/callurl/test_coverage)
 
 A module to provide weather data fetched through open APIs.
 
