@@ -40,7 +40,7 @@ return [
                 "siteLogo"      => "image/theme/leaf_256x256.png",
                 "siteLogoAlt"   => "Löv",
             ],
-        ],/*
+        ],
         [
             "region" => "header-col-1",
             "template" => "anax/v2/header/site_logo_text",
@@ -50,7 +50,7 @@ return [
                 "siteLogoTextIcon" => "image/theme/leaf_40x40.png",
                 "siteLogoTextIconAlt" => "Löv-bild",
             ],
-        ],*/
+        ],
         [
             "region" => "header-col-2",
             "template" => "anax/v2/navbar/navbar_submenus",
