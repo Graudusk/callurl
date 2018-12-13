@@ -284,12 +284,12 @@ trait WeatherModelTrait
     {
         $days = [];
         if ($this->daily) {
-            $this->daily["data"] = array_slice($this->daily["data"], 1, 30);
             setlocale(LC_ALL, 'sv_SV');
-            for ($i=0; $i < sizeof($this->daily["data"]); $i++) {
-                $dailyTime = $this->daily["data"][$i]["time"];
-                if ($dailyTime) {
-                    $this->parseDate("daily", $i, $dailyTime);
+            $comingDays = array_slice($this->daily["data"], 1, 30);
+            foreach ($comingDays as $i => $data) {
+                $dailyTime = $data["time"];
+                if ($data["time"]) {
+                    $this->parseDate("daily", $i, $data["time"]);
                     $days[$i] = $this->pushInfo(
                         $this->daily["data"][$i],
                         [
