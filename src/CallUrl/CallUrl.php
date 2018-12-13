@@ -20,7 +20,7 @@ class CallUrl implements ContainerInjectableInterface
      * @param string $urlHost   The base url for the API website.
      * @param array  $query     The query string for the API call.
      *
-     * @return json The result data from the API call.
+     * @return array The result data from the API call.
      */
     public function fetch($urlHost, $query)
     {
@@ -45,16 +45,17 @@ class CallUrl implements ContainerInjectableInterface
      * @param  string $url     [description]
      * @param  array  $params  [description]
      * @param  array  $queries [description]
+     *
      * @return string          [description]
      */
     public function buildUrl($url, $params, $queries)
     {
         $returnUrl = $url;
-        if ($params) {
+        if (!empty($params)) {
             $returnUrl .= implode("/", $params);
         }
 
-        if ($queries) {
+        if (!empty($queries)) {
             $returnUrl .= "?" . http_build_query($queries);
         }
 
@@ -67,7 +68,7 @@ class CallUrl implements ContainerInjectableInterface
      * @param array $urls    [description]
      * @param array $params  [description]
      * @param array $queries [description]
-    *
+     *
      * @return array          [description]
      */
     public function fetchConcurrently($urls, $params, $queries)
@@ -86,9 +87,7 @@ class CallUrl implements ContainerInjectableInterface
             $nodes = array();
             $results = array();
 
-            $urlCount = count($urls);
-
-            for ($i=0; $i<$urlCount; $i++) {
+            for ($i=0; $i < sizeof($urls); $i++) {
                 $url = $this->buildUrl($urls[$i], $params[$i], $queries[$i]);
                 array_push($nodes, $url);
             }

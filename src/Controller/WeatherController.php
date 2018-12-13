@@ -67,7 +67,7 @@ class WeatherController implements ContainerInjectableInterface
     /**
      * [getInfoAction description]
      *
-     * @return [type] [description]
+     * @return object [description]
      */
     public function getInfoAction() : object
     {
