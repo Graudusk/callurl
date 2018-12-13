@@ -26,11 +26,6 @@ return [
             "title" => "Om denna webbplats.",
         ],
         [
-            "text" => "Ip",
-            "url" => "ip",
-            "title" => "Validera ip-adress.",
-        ],
-        [
             "text" => "Väder",
             "url" => "weather",
             "title" => "API för att hämta väderinformation.",
