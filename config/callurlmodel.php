@@ -14,7 +14,8 @@ return [
     // "darkskykey" => "1f1183a7ef14e3ab6c6c56d38f410474",
 
     // Använd ifall limit nås
-    "darkskykey" => "befe929c921f0f84f37065b031b1728e",
+    // "darkskykey" => "befe929c921f0f84f37065b031b1728e",
+    "darkskykey" => "a200a02bb2af8c810d7685b1bf86c5e7",
 
     // Use for open cage geocode web-api
     "opencagekey" => "f5fe3921df8b4fcd8bff2d05e73dd4d6",

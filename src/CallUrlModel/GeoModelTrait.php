@@ -38,10 +38,10 @@ trait GeoModelTrait
         "display_name"
     ];
 
-    abstract function isValidIp();
-    abstract function validateIp();
-    abstract function getInfo();
-    abstract function fillInfo($result, $keys);
+    abstract public function isValidIp();
+    abstract public function validateIp();
+    abstract public function getInfo();
+    abstract public function fillInfo($result, $keys);
 
     /**
      * Sets ipstackurl property.

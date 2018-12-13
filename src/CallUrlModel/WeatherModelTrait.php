@@ -26,16 +26,16 @@ trait WeatherModelTrait
     private $pastDays;
     private $darkskykey;
 
-    static $dateFormat = "%e %B %Y";
-    static $timeFormat = "%R";
-    static $dayFormat = "%A";
+    public static $dateFormat = "%e %B %Y";
+    public static $timeFormat = "%R";
+    public static $dayFormat = "%A";
 
-    abstract function getInfo();
-    abstract function getGeoInfo();
-    abstract function pushInfo($result, $keys);
-    abstract function getZoomLevel();
-    abstract function setErrorMessage($msg);
-    abstract function fillInfo($result, $keys);
+    abstract public function getInfo();
+    abstract public function getGeoInfo();
+    abstract public function pushInfo($result, $keys);
+    abstract public function getZoomLevel();
+    abstract public function setErrorMessage($msg);
+    abstract public function fillInfo($result, $keys);
 
     /**
      * Sets darkskykey property.

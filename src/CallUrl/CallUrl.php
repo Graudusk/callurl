@@ -87,7 +87,9 @@ class CallUrl implements ContainerInjectableInterface
             $nodes = array();
             $results = array();
 
-            for ($i=0; $i < sizeof($urls); $i++) {
+            $urlCount = count($urls);
+
+            for ($i=0; $i < $urlCount; $i++) {
                 $url = $this->buildUrl($urls[$i], $params[$i], $queries[$i]);
                 array_push($nodes, $url);
             }
