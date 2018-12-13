@@ -20,7 +20,7 @@ class CallUrl implements ContainerInjectableInterface
      * @param string $urlHost   The base url for the API website.
      * @param array  $query     The query string for the API call.
      *
-     * @return [json] The result data from the API call.
+     * @return json The result data from the API call.
      */
     public function fetch($urlHost, $query)
     {
@@ -42,10 +42,10 @@ class CallUrl implements ContainerInjectableInterface
     /**
      * [buildUrl description]
      *
-     * @param  [type] $url     [description]
-     * @param  [type] $params  [description]
-     * @param  [type] $queries [description]
-     * @return [type]          [description]
+     * @param  string $url     [description]
+     * @param  array  $params  [description]
+     * @param  array  $queries [description]
+     * @return string          [description]
      */
     public function buildUrl($url, $params, $queries)
     {
@@ -64,11 +64,11 @@ class CallUrl implements ContainerInjectableInterface
     /**
      * Fetch multiple
      *
-     * @param [array] $urls    [description]
-     * @param [array] $params  [description]
-     * @param [array] $queries [description]
-     *
-     * @return [type]          [description]
+     * @param array $urls    [description]
+     * @param array $params  [description]
+     * @param array $queries [description]
+    *
+     * @return array          [description]
      */
     public function fetchConcurrently($urls, $params, $queries)
     {
@@ -81,15 +81,14 @@ class CallUrl implements ContainerInjectableInterface
         $weatherCache = $cache->get($cookieName);
 
         if ($weatherCache) {
-            // $timeValue = $weatherCache[0]["currently"]["time"];  // assume seconds
-            // $date = date('YMDH', $timeValue);  // convert time value to milliseconds
-            // $cookieCall = $weatherCache[0]["latitude"] . $weatherCache[0]["longitude"] . $date;
             return $weatherCache;
         } else {
             $nodes = array();
             $results = array();
 
-            for ($i=0; $i < sizeof($urls); $i++) {
+            $urlCount = count($urls);
+
+            for ($i=0; $i<$urlCount; $i++) {
                 $url = $this->buildUrl($urls[$i], $params[$i], $queries[$i]);
                 array_push($nodes, $url);
             }

@@ -28,7 +28,7 @@ class CallUrlModel implements ContainerInjectableInterface
     /**
      * [setDarkskyKey description]
      *
-     * @param [type] $key [description]
+     * @param string $key [description]
      */
     public function setIpstackKey($key)
     {

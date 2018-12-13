@@ -13,7 +13,7 @@ trait IpModelTrait
     // use WeatherModelTrait;
     // use ContainerInjectableTrait;
     /**
-     * @var int        $ipAddress  The ip address.
+     * @var string     $ipAddress  The ip address.
      * @var string     $message  The message.
      * @var boolean    $valid  If the ip address is valid.
      * @var string     $host  The ip adress' host.
@@ -39,7 +39,7 @@ trait IpModelTrait
     /**
      * Returns the data of the IpModel.
      *
-     * @return [array] array of info.
+     * @return array array of info.
      */
     public function getInfo()
     {
@@ -64,10 +64,10 @@ trait IpModelTrait
     /**
      * [pushInfo description]
      *
-     * @param  [type] $result [description]
-     * @param  [type] $keys   [description]
+     * @param  array $result [description]
+     * @param  array $keys   [description]
      *
-     * @return [type]         [description]
+     * @return array         [description]
      */
     public function pushInfo($result, $keys)
     {
@@ -83,7 +83,7 @@ trait IpModelTrait
     /**
      * Validates the ip address stored in the Class instance.
      *
-     * @return [array] Array with data
+     * @return array Array with data
      */
     public function validateIp()
     {

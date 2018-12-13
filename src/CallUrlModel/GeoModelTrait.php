@@ -39,6 +39,7 @@ trait GeoModelTrait
     ];
 
     abstract function isValidIp();
+    abstract function validateIp();
     abstract function getInfo();
     abstract function fillInfo($result, $keys);
 
@@ -75,7 +76,7 @@ trait GeoModelTrait
     /**
      * Returns specific fetched key properties.
      *
-     * @return [array] Geographic data
+     * @return array Geographic data
      */
     public function getGeoInfo()
     {
@@ -100,7 +101,7 @@ trait GeoModelTrait
      */
     public function getZoomLevel()
     {
-        $retArray;
+        $retArray = array();
         if (!$this->isValidIp()) {
             $retArray = array("zoomLevel" => "12", "radius" => "600");
         } elseif ($this->city !== null) {
@@ -161,7 +162,7 @@ trait GeoModelTrait
         } elseif ($this->isValidIp()) {
             $apiResult = $this->getGeoFromIp();
 
-            if ($apiResult) {
+            if (!empty($apiResult)) {
                 $this->fillInfo($apiResult, $this->dataList);
             } else {
                 $this->setErrorMessage("Ingen positionsdata kunde hämtas utifrån platsnamnet.");

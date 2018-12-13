@@ -70,7 +70,7 @@ trait WeatherModelTrait
     /**
      * Returns specific fetched key properties.
      *
-     * @return [array] Weather data
+     * @return array Weather data
      */
     public function getWeatherInfo()
     {
@@ -190,7 +190,8 @@ trait WeatherModelTrait
         $hourly = [];
         if ($this->hourly && isset($this->hourly["data"])) {
             $this->hourly["data"] = array_slice($this->hourly["data"], 0, 12);
-            for ($i=0; $i < sizeof($this->hourly["data"]); $i++) {
+            $hours = count($this->hourly["data"]);
+            for ($i=0; $i < $hours; $i++) {
                 setlocale(LC_ALL, 'sv_SV');
                 $time = $this->hourly["data"][$i]["time"];
                 if ($time) {
@@ -229,7 +230,8 @@ trait WeatherModelTrait
 
         if ($this->pastDays["data"]) {
             setlocale(LC_ALL, 'sv_SV');
-            for ($i=0; $i < sizeof($this->pastDays["data"]); $i++) {
+            $pastDayCount = count($this->pastDays["data"]);
+            for ($i=0; $i < $pastDayCount; $i++) {
                 $pastDaysTime = $this->pastDays["data"][$i]["time"];
                 if ($pastDaysTime) {
                     $this->parseDate("pastDays", $i, $pastDaysTime);
@@ -287,7 +289,6 @@ trait WeatherModelTrait
             setlocale(LC_ALL, 'sv_SV');
             $comingDays = array_slice($this->daily["data"], 1, 30);
             foreach ($comingDays as $i => $data) {
-                $dailyTime = $data["time"];
                 if ($data["time"]) {
                     $this->parseDate("daily", $i, $data["time"]);
                     $days[$i] = $this->pushInfo(
@@ -390,7 +391,10 @@ trait WeatherModelTrait
             }
 
             $pastDays = array("data" => []);
-            for ($i=1; $i < sizeof($apiResult); $i++) {
+
+            $resultCount = count($apiResult);
+
+            for ($i=1; $i<$resultCount; $i++) {
                 if ($apiResult[$i] && isset($apiResult[$i]["daily"]["data"][0])) {
                     array_push($pastDays["data"], $apiResult[$i]["daily"]["data"][0]);
                 }
