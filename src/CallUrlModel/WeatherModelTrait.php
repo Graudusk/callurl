@@ -230,9 +230,9 @@ trait WeatherModelTrait
         if ($this->pastDays["data"]) {
             setlocale(LC_ALL, 'sv_SV');
             for ($i=0; $i < sizeof($this->pastDays["data"]); $i++) {
-                $time = $this->pastDays["data"][$i]["time"];
-                if ($time) {
-                    $this->parseDate("pastDays", $i, $time);
+                $pastDaysTime = $this->pastDays["data"][$i]["time"];
+                if ($pastDaysTime) {
+                    $this->parseDate("pastDays", $i, $pastDaysTime);
                     $pastDays[$i] = $this->pushInfo(
                         $this->pastDays["data"][$i],
                         [
@@ -287,9 +287,9 @@ trait WeatherModelTrait
             $this->daily["data"] = array_slice($this->daily["data"], 1, 30);
             setlocale(LC_ALL, 'sv_SV');
             for ($i=0; $i < sizeof($this->daily["data"]); $i++) {
-                $time = $this->daily["data"][$i]["time"];
-                if ($time) {
-                    $this->parseDate("daily", $i, $time);
+                $dailyTime = $this->daily["data"][$i]["time"];
+                if ($dailyTime) {
+                    $this->parseDate("daily", $i, $dailyTime);
                     $days[$i] = $this->pushInfo(
                         $this->daily["data"][$i],
                         [
